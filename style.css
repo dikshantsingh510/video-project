@@ -1,0 +1,121 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100vh;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+
+}
+
+.container #box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  visibility: hidden;
+}
+.container #box.active{
+  visibility: visible;
+}
+
+.container #box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6)
+}
+
+.container #box #video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.container #box .txt{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 8vh;
+  font-weight: 900;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.container #box #btns {
+  position: absolute;
+  bottom: 5vh;
+  left: 50%;
+  transform: translateX(-50%);
+  box-sizing: border-box;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  cursor: none;
+  background: linear-gradient(135deg, #6CDAFF, #655CF6);
+  font-size: 20px;
+  box-shadow: 5px 5px 25px #655CF6,
+    -5px -5px 25px #6CDAFF;
+}
+
+#btnPlay {
+  display: block;
+}
+
+#btnPlay.active {
+  display: none;
+}
+
+#btnPause {
+  display: none;
+}
+
+#btnPause.active {
+  display: block;
+}
+
+@media (min-width:768px) {
+  .container #box #btns {
+    width: 120px;
+    height: 120px;
+    font-size: 35px;
+    box-shadow: 5px 5px 45px #655CF6, -5px -5px 45px #6CDAFF;
+  }
+  
+}
+
+/* Loading screen */
+
+#preloader {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#preloader.active {
+  display: none;
+}
